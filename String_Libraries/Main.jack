@@ -1,0 +1,39 @@
+
+/** Test program for the OS String class. */
+class Main {
+
+    /** Performs several string manipulations and prints their results. */
+    function void main() {
+        var String2 s;
+        var String2 i;
+        var String str;
+        var int i;
+        var int location;
+
+        let s = String2.new(0); 
+        do Output.printString("length: ");
+        do Output.printInt(s.length());        
+        do Output.println();	
+
+        let str = Keyboard.readLine("Enter a string: ");
+        let s = String2.new(str.length());
+        let i = 0;
+        while (i < str.length()) {
+           do s.appendChar(str.charAt(i));
+           let i = i + 1;
+       }
+
+        let location = Keyboard.readInt("Location: ");
+        do Output.printString("charAt[");
+        do Output.printInt(location);
+        do Output.printString("]: ");
+        do Output.printChar(s.charAt(location));        
+        do Output.println();
+        do Output.printString("length: ");
+        do Output.printInt(s.length());
+
+        do s.dispose();
+        return;
+    }
+
+}

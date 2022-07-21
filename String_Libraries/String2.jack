@@ -1,0 +1,47 @@
+class String2 {
+  field Array string_array;
+  field int string_end, max_length;
+
+  
+  constructor String2 new(int maxLength) {
+    if (maxLength < 0) {
+      do Sys.error(14); 
+    }
+
+    let string_end = 0;
+    let max_length = maxLength + 1;
+    let string_array = Array.new(max_length);
+
+    return this;
+  }
+
+  method void dispose() {
+    do string_array.dispose();
+    do Memory.deAlloc(this);
+
+    return;
+  }
+
+  method int length() {
+    return string_end;
+  }
+
+  method char charAt(int j) {
+    if ((j < 0) | (j > (string_end - 1))) {
+      do Sys.error(15); 
+    }
+
+    return string_array[j];
+  }
+
+ method void appendChar(char c) {
+    if (string_end = max_length) {
+      do Sys.error(17); 
+    }
+
+    let string_array[string_end] = c;
+    let string_end = string_end + 1;
+
+    return;
+  }
+}
