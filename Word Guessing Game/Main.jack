@@ -1,0 +1,12 @@
+class Main
+{
+   function void main()
+   {
+      var WordGuessing game;
+
+      let game =WordGuessing.new();
+      do game.run();
+      
+      return;
+   }
+}

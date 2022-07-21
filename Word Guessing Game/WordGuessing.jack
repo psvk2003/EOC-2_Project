@@ -1,0 +1,127 @@
+class WordGuessing
+{
+   field String solution;
+   field String correctGuesses;
+   constructor WordGuessing new()
+   {
+      var String WordGuessing,guesses;
+      var int i;
+      var int answerLength;
+      let WordGuessing = "WordGuessing";
+      let guesses = "Guesses:    entered alpha";
+      let i = 0;
+      
+      let solution = "FOUR";
+      let correctGuesses = String.new(solution.length());
+      while(i < (solution.length()))
+      {
+         let correctGuesses = correctGuesses.appendChar(219);
+         let i = i+1; 
+      }
+      
+      do Output.printString(WordGuessing);
+      do Output.println();
+      do Output.println();
+      do Output.printString(guesses);
+      do Output.println();
+      return this;
+   }
+   
+   //start and run the game.
+   method void run()
+   {
+      var boolean endGame;
+      var int line, wrongGuesses;
+      var char guess;
+       
+      let wrongGuesses = 0;
+      let line = 3; 
+      let endGame = 0;
+      
+      
+      while(~(endGame))
+      {
+         do Output.printString(correctGuesses);
+         do Output.moveCursor(line,15);
+         let line = line +1;
+         let guess = Keyboard.readChar();
+         do Output.println();
+         if(~(isCorrectGuess(guess)))
+         {
+            if(wrongGuesses = 0)
+            {
+ do Output.printString(" ");
+               do Output.printString("                                                   guess again!");
+            }
+            if(wrongGuesses = 1)
+            {
+do Output.printString(" ");
+               do Output.printString("                                                   guess again!");
+            }
+            if(wrongGuesses = 2)
+            {
+do Output.printString(" ");
+               do Output.printString("                                                   guess again!");
+            }
+            if(wrongGuesses = 3)
+            {
+do Output.printString(" ");
+               do Output.printString("                                                   guess again!");
+            }
+            if(wrongGuesses = 4)
+            {
+do Output.printString(" ");
+               do Output.printString("                                                   guess again!");
+            }
+            if(wrongGuesses = 5)
+            {
+do Output.printString(" ");
+               do Output.printString("GAME OVER!");
+               let endGame = -1;
+            }
+            let wrongGuesses = wrongGuesses +1; 
+         }
+         if(isWin())
+         {
+            do Output.printString("You win!");
+            do Output.println();
+            do Output.printString(solution);
+            let endGame = -1;
+         }
+      }
+      return;
+   }
+   
+   //Check winning condition
+   method boolean isWin()
+   {
+      var int i;
+      let i = 0;
+      while(i < correctGuesses.length())
+      {
+         if(correctGuesses.charAt(i) = 219)
+         {
+            return 0; 
+         }
+         let i = i+1;
+      }
+      return -1; 
+   }
+   
+   //Verify whole word as the game progresses
+   method boolean isCorrectGuess(char guess)
+   { 
+      var int i;
+      let i =0;
+      while(i < solution.length())
+      {
+         if(guess = solution.charAt(i))
+         {
+            do correctGuesses.setCharAt(i, guess);
+            return -1;
+         }
+         let i=i+1;
+      }
+      return 0;
+   }
+}
