@@ -1,0 +1,73 @@
+class Stack {
+  field Array arr;
+  field int top;
+  field int length;
+
+
+  constructor Stack new(int data) {
+    let arr =  Array.new(data);
+    let length = data;
+    let top=-1;
+
+    return this;
+  }
+
+  method void push(int value){
+    if(isFull()){
+      do output.printString("stack is full");
+    }
+    let top=top+1;
+    let arr[top]=value;
+    return;
+  }
+
+  method void pop(){
+    if(isEmpty()){
+      do output.printString("stack is empty");
+    }
+    let top = top-1;
+    return;
+  }
+  method int peek(){
+    var int j;
+    let j = arr[top];
+    return j;
+  }
+
+  method void Displaystack(){
+    var int i;
+    let i = 0;
+    while(i<(top+1)){
+      do Output.printInt(arr[i]);
+      do Output.println();
+      let i = i + 1;
+    }
+    return;
+  }
+
+  method boolean isFull(){
+    var boolean s;
+    if(top = (length-1)){
+      let s = true;
+    }
+
+    else{
+      let s = false;
+    }
+    return s;
+  }
+
+  method boolean isEmpty(){
+    var boolean s1;
+
+    if(top = -1){
+      let s1 = true;
+    }
+    else{
+      let s1 = false;
+    }
+    return s1;
+  }
+
+}
+f
